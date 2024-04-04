@@ -39,4 +39,24 @@ public class UserController {
     public void update(@RequestBody User user) {
         userService.update(user);
     }
+
+    @GetMapping("/fetch-by-select")
+    public List<User> getAllBySelect() {
+        return userService.fetchBySelect();
+    }
+
+    @GetMapping("/fetch-by-join")
+    public List<User> getAllByJoin() {
+        return userService.fetchByJoin();
+    }
+
+    @GetMapping("/fetch-by-subselect")
+    public List<User> getAllBySubSelect() {
+        return userService.fetchBySubSelect();
+    }
+
+    @GetMapping("/fetch-by-batch")
+    public List<User> getAllByBatch() {
+        return userService.fetchByBatch();
+    }
 }

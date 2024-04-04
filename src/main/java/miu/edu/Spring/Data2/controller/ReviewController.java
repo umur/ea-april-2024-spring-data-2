@@ -2,6 +2,7 @@ package miu.edu.Spring.Data2.controller;
 
 import lombok.RequiredArgsConstructor;
 import miu.edu.Spring.Data2.entity.Review;
+import miu.edu.Spring.Data2.service.ReviewService;
 import miu.edu.Spring.Data2.service.ReviewServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class ReviewController {
 
-    private final ReviewServiceImpl reviewService;
+    private final ReviewService reviewService;
 
     @PostMapping
     public Review save(@RequestBody Review review){

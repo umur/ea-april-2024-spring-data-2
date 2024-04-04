@@ -2,7 +2,7 @@ package miu.edu.Spring.Data2.controller;
 
 import lombok.RequiredArgsConstructor;
 import miu.edu.Spring.Data2.entity.Product;
-import miu.edu.Spring.Data2.service.ProductServiceImpl;
+import miu.edu.Spring.Data2.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,10 +10,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/products")
-
 public class ProductController {
 
-    private final ProductServiceImpl productService;
+    private final ProductService productService;
 
     @PostMapping
     public Product save(@RequestBody Product product){

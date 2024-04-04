@@ -2,6 +2,7 @@ package miu.edu.Spring.Data2.controller;
 
 import lombok.RequiredArgsConstructor;
 import miu.edu.Spring.Data2.entity.User;
+import miu.edu.Spring.Data2.service.UserService;
 import miu.edu.Spring.Data2.service.UserServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
     @PostMapping
     public User createUser(@RequestBody User user){

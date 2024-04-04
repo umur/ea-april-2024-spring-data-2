@@ -3,6 +3,8 @@ package miu.edu.Spring.Data2.service;
 import lombok.RequiredArgsConstructor;
 import miu.edu.Spring.Data2.entity.Product;
 import miu.edu.Spring.Data2.repository.ProductRepo;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

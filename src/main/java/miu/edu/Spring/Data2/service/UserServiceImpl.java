@@ -3,6 +3,8 @@ package miu.edu.Spring.Data2.service;
 import lombok.RequiredArgsConstructor;
 import miu.edu.Spring.Data2.entity.User;
 import miu.edu.Spring.Data2.repository.UserRepo;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +19,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @Fetch(FetchMode.SELECT)
     public List<User> getAll()  {
         return  userRepo.findAll();
     }

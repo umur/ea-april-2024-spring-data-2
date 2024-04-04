@@ -1,5 +1,6 @@
 package miu.edu.Spring.Data2.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import miu.edu.Spring.Data2.entity.Review;
 import miu.edu.Spring.Data2.repository.ReviewRepo;
@@ -17,8 +18,9 @@ public class ReviewServiceImpl implements ReviewService{
     }
 
     @Override
+    @Transactional
     public Review save(Review review)  {
-        return (Review) reviewRepo.save(review);
+        return reviewRepo.save(review);
     }
 
     @Override

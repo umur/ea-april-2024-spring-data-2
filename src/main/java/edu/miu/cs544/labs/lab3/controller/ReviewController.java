@@ -43,22 +43,22 @@ public class ReviewController {
 
     @GetMapping("/fetch-by-select")
     public List<Review> getAllBySelect() {
-        return reviewService.findAll();
+        return reviewService.fetchBySelect();
     }
 
     @GetMapping("/fetch-by-join")
     public List<Review> getAllByJoin() {
-        return reviewService.findAll();
+        return reviewService.fetchByJoin();
     }
 
     @GetMapping("/fetch-by-subselect")
     public List<Review> getAllBySubSelect() {
-        return reviewService.findAll();
+        return reviewService.fetchBySubSelect();
     }
 
     @GetMapping("/fetch-by-batch")
     public List<Review> getAllByBatch() {
-        return reviewService.findAll();
+        return reviewService.fetchByBatch();
     }
 
 }

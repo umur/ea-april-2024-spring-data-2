@@ -1,5 +1,6 @@
 package edu.miu.cs544.labs.lab3.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -20,5 +21,6 @@ public class Product {
     private String description;
 
     @OneToMany(mappedBy = "product")
+    @JsonManagedReference
     private List<Review> reviews;
 }

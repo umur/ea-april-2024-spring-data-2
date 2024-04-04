@@ -1,10 +1,10 @@
 package edu.miu.cs544.labs.lab3.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -13,19 +13,28 @@ import lombok.Setter;
 public class Review {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private int rating;
 
     private String comment;
 
-    // ManyToOne with User
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
 
-    // ManyToOne with Product
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JsonBackReference
     private Product product;
+
+    public Review(int rating, String comment, User user) {
+        this.rating = rating;
+        this.comment = comment;
+        this.user = user;
+    }
+
+    public Review() {
+
+    }
 }

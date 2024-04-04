@@ -26,7 +26,8 @@ public class DatabaseSeeder implements CommandLineRunner {
 
         // Seed users
         for (int i = 0; i < 100; i++) {
-            User user = new User("user" + i, i * 2);
+            int age = getRandomNumber(18, 60);
+            User user = new User(String.format("User %s", i), age);
             userRepo.save(user);
             users.add(user);
         }
@@ -40,7 +41,8 @@ public class DatabaseSeeder implements CommandLineRunner {
             Review review = new Review(
                     rating,
                     String.format("Comment %s", i),
-                    users.get(userIndex));
+                    users.get(userIndex)
+            );
             reviewRepo.save(review);
         }
     }

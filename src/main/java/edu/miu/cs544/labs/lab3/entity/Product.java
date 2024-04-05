@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.util.List;
 
@@ -12,6 +14,9 @@ import java.util.List;
 @Setter
 @Entity
 @NoArgsConstructor
+@NamedEntityGraph(name = "Product.reviews",
+        attributeNodes = @NamedAttributeNode("reviews")
+)
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +28,10 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     @JsonManagedReference
+    @Fetch(FetchMode.SUBSELECT)
+    //@Fetch(FetchMode.SELECT)
+    //@Fetch(FetchMode.JOIN)
+    // @BatchSize(size = 100)
     private List<Review> reviews;
 
     public Product(String name, String description) {

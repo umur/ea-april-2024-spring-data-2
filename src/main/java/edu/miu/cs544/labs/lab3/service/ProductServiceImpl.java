@@ -3,6 +3,7 @@ package edu.miu.cs544.labs.lab3.service;
 import edu.miu.cs544.labs.lab3.entity.Product;
 import edu.miu.cs544.labs.lab3.repository.ProductRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +15,9 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepo repo;
 
     @Override
+    @EntityGraph(value = "Product.reviews")
     public List<Product> findAll() {
-        return (List<Product>) repo.findAll();
+        return repo.findAll();
     }
 
     @Override

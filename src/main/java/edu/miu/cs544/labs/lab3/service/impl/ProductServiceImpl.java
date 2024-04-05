@@ -1,7 +1,8 @@
-package edu.miu.cs544.labs.lab3.service;
+package edu.miu.cs544.labs.lab3.service.impl;
 
 import edu.miu.cs544.labs.lab3.entity.Product;
 import edu.miu.cs544.labs.lab3.repository.ProductRepo;
+import edu.miu.cs544.labs.lab3.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.stereotype.Service;

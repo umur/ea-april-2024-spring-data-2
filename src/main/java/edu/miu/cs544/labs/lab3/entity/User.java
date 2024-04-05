@@ -19,10 +19,6 @@ public class User {
     private String name;
     private int age;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "user")
-    private List<Review> reviews;
-
     public User(String name, int age) {
         this.name = name;
         this.age = age;

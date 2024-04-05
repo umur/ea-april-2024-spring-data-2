@@ -1,7 +1,8 @@
-package edu.miu.cs544.labs.lab3.service;
+package edu.miu.cs544.labs.lab3.service.impl;
 
 import edu.miu.cs544.labs.lab3.entity.User;
 import edu.miu.cs544.labs.lab3.repository.UserRepo;
+import edu.miu.cs544.labs.lab3.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

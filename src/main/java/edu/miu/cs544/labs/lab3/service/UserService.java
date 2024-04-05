@@ -16,4 +16,12 @@ public interface UserService {
     void delete(Long id);
 
     void update(User address);
+
+    List<User> fetchBySelect();
+
+    List<User> fetchByJoin();
+
+    List<User> fetchBySubSelect();
+
+    List<User> fetchByBatch();
 }

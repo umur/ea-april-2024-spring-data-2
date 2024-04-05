@@ -12,6 +12,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
     private final ProductRepo repo;
+
     @Override
     public List<Product> findAll() {
         return (List<Product>) repo.findAll();

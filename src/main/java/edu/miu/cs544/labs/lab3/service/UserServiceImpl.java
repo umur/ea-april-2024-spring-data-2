@@ -37,24 +37,4 @@ public class UserServiceImpl implements UserService {
     public void update(User address) {
         userRepo.save(address);
     }
-
-    @Override
-    public List<User> fetchBySelect() {
-        return userRepo.getSelectAllByOrderById();
-    }
-
-    @Override
-    public List<User> fetchByJoin() {
-        return userRepo.getJoinAllByOrderById();
-    }
-
-    @Override
-    public List<User> fetchBySubSelect() {
-        return userRepo.getSubSelectAllByOrderById();
-    }
-
-    @Override
-    public List<User> fetchByBatch() {
-        return userRepo.getBatchAllByOrderById();
-    }
 }

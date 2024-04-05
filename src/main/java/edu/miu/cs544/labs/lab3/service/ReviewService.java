@@ -17,12 +17,4 @@ public interface ReviewService {
 
     void update(Review review);
 
-    List<Review> fetchBySelect();
-
-    List<Review> fetchByJoin();
-
-    List<Review> fetchBySubSelect();
-
-    List<Review> fetchByBatch();
-
 }

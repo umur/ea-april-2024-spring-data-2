@@ -39,25 +39,4 @@ public class ReviewServiceImpl implements ReviewService {
         reviewRepo.save(review);
     }
 
-    @Override
-    public List<Review> fetchBySelect() {
-        return reviewRepo.getSelectAllByOrderById();
-    }
-
-    @Override
-    public List<Review> fetchByJoin() {
-        return reviewRepo.getJoinAllByOrderById();
-    }
-
-    @Override
-    public List<Review> fetchBySubSelect() {
-        return reviewRepo.getSubSelectAllByOrderById();
-    }
-
-    @Override
-    public List<Review> fetchByBatch() {
-        return reviewRepo.getBatchAllByOrderById();
-    }
-
-
 }

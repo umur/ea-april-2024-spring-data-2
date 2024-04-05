@@ -40,25 +40,4 @@ public class ReviewController {
     public void update(@RequestBody Review review) {
         reviewService.update(review);
     }
-
-    @GetMapping("/fetch-by-select")
-    public List<Review> getAllBySelect() {
-        return reviewService.fetchBySelect();
-    }
-
-    @GetMapping("/fetch-by-join")
-    public List<Review> getAllByJoin() {
-        return reviewService.fetchByJoin();
-    }
-
-    @GetMapping("/fetch-by-subselect")
-    public List<Review> getAllBySubSelect() {
-        return reviewService.fetchBySubSelect();
-    }
-
-    @GetMapping("/fetch-by-batch")
-    public List<Review> getAllByBatch() {
-        return reviewService.fetchByBatch();
-    }
-
 }

@@ -1,10 +1,9 @@
 package edu.miu.cs544.labs.lab3;
 
 import edu.miu.cs544.labs.lab3.entity.Product;
-import edu.miu.cs544.labs.lab3.entity.User;
-import edu.miu.cs544.labs.lab3.repository.ProductRepo;
 import edu.miu.cs544.labs.lab3.entity.Review;
 import edu.miu.cs544.labs.lab3.entity.User;
+import edu.miu.cs544.labs.lab3.repository.ProductRepo;
 import edu.miu.cs544.labs.lab3.repository.ReviewRepo;
 import edu.miu.cs544.labs.lab3.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +17,7 @@ import java.util.List;
 public class DatabaseSeeder implements CommandLineRunner {
     @Autowired
     private UserRepo userRepo;
+
     @Autowired
     private ReviewRepo reviewRepo;
 
@@ -38,6 +38,11 @@ public class DatabaseSeeder implements CommandLineRunner {
         }
 
         // Seed products
+        for (int i = 0; i < 1000; i++) {
+            Product p = new Product(String.format("Product %s", i), String.format("Product %s description", i));
+            productRepo.save(p);
+            products.add(p);
+        }
 
         // Seed reviews
         for (int i = 0; i < 1000; i++) {
@@ -46,16 +51,13 @@ public class DatabaseSeeder implements CommandLineRunner {
             Review review = new Review(
                     rating,
                     String.format("Comment %s", i),
-                    users.get(userIndex)
+                    users.get(userIndex),
+                    products.get(i)
             );
             reviewRepo.save(review);
         }
 
-        // Seed products
-        for(int i=0; i<1000; i++){
-            Product p = new Product("Product "+i , "Product "+i + " description");
-            productRepo.save(p);
-        }
+
     }
 
     private int getRandomNumber(int min, int max) {

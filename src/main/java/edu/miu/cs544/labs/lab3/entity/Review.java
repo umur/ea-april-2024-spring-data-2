@@ -2,9 +2,7 @@ package edu.miu.cs544.labs.lab3.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -28,10 +26,11 @@ public class Review {
     @JsonBackReference
     private Product product;
 
-    public Review(int rating, String comment, User user) {
+    public Review(int rating, String comment, User user, Product product) {
         this.rating = rating;
         this.comment = comment;
         this.user = user;
+        this.product = product;
     }
 
     public Review() {

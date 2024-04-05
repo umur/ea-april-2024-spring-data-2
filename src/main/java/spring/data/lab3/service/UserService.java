@@ -18,6 +18,6 @@ public class UserService {
 
     public List<User> getUsersBySelect() {
 //        return userRepository.getAll();
-        return null;
+        return userRepository.findAll();
     }
 }

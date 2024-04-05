@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -22,5 +24,6 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     @JsonManagedReference
+    @Fetch(value = FetchMode.JOIN)
     private List<Review> reviews;
 }

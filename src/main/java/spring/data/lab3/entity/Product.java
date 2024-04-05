@@ -1,11 +1,12 @@
 package spring.data.lab3.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,4 +18,7 @@ public class Product {
     private String name;
     private double price;
 
+    @OneToMany(mappedBy = "product")
+    @Fetch(value = FetchMode.SELECT)
+    private List<Review> reviews;
 }

@@ -18,6 +18,6 @@ public class ReviewService {
 
     public List<Review> getReviewsBySelect() {
         // TODO: Implement this method
-        return null;
+        return reviewRepository.findAll();
     }
 }

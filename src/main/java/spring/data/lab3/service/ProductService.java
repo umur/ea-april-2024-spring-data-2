@@ -18,6 +18,9 @@ public class ProductService {
 
     public List<Product> getProductsBySelect() {
         // TODO: Implement this method
-        return null;
+        var time = System.currentTimeMillis();
+        List<Product> products = productRepository.findAll();
+        System.out.println(System.currentTimeMillis() - time);
+        return products;
     }
 }

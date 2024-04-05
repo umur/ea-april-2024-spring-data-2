@@ -19,11 +19,11 @@ public class Review {
     private String comment;
 
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
-//    @JsonBackReference
+    @JsonBackReference(value = "user_review")
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

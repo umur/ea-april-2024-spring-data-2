@@ -21,7 +21,7 @@ public class User {
     private String email;
     private String password;
 
-//    @JsonManagedReference
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-//    private List<Review> reviews;
+    @JsonManagedReference(value = "user_review")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Review> reviews;
 }

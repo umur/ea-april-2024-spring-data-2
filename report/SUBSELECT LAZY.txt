@@ -1,0 +1,2 @@
+Hibernate: select p1_0.id,p1_0.name,p1_0.price,p1_0.rating from product p1_0
+Hibernate: select r1_0.product_id,r1_0.id,r1_0.comment,u1_0.id,u1_0.email,u1_0.firstname,u1_0.lastname,u1_0.password from review r1_0 left join user u1_0 on u1_0.id=r1_0.user_id where r1_0.product_id in(select p1_0.id from product p1_0)

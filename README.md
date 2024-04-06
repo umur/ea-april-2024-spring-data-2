@@ -3,7 +3,7 @@
 -	Si Duy Nguyen (617588)
 -	Dinh Trung Tran (617578)
 
-# Report file: Report.docx
+# Report file: Report.pdf
 
 ###  Requirements
 ---

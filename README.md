@@ -1,8 +1,9 @@
+## Team members
+-	Minh Toan Nguyen (617556)
+-	Si Duy Nguyen (617588)
+-	Dinh Trung Tran (617578)
 
-
-# Spring Data II
-
-The goal of this assignment is to learn the fetching strategies supported by Spring Data JPA, understand their differences, and assess their impact on application performance. Through this exercise, you will learn how to optimize data retrieval in a Spring Boot application by employing various fetching strategies such as `select`, `join`, `subselect`, and `batch`.
+# Report file: Report.docx
 
 ###  Requirements
 ---
@@ -22,27 +23,11 @@ The goal of this assignment is to learn the fetching strategies supported by Spr
 		* `Performance`: For example, Execution time averaged at 50ms, with a moderate memory usage of 120MB. Data transfer size was relatively low at 300KB, reflecting the efficiency of targeted queries.
 		* `Practical Use`: For example, Best suited for scenarios where associated entities are rarely accessed or when the number of associated entities is unknown or highly variable.
 	* A detailed analysis of the performance evaluation results. Create charts to show the differences.
-		* `Query Execution Time Comparison`: A bar chart displaying the average execution time for each fetching strategy. 
-		* `Total Number of SQL Queries Generated`: Another bar chart that shows the total number of SQL queries executed for each strategy. 
+		* `Query Execution Time Comparison`: A bar chart displaying the average execution time for each fetching strategy.
+		* `Total Number of SQL Queries Generated`: Another bar chart that shows the total number of SQL queries executed for each strategy.
 		* `Memory Usage`: A line chart showing the peak memory usage of each fetching strategy during execution.
-		* `Data Transfer Size`: A bar chart comparing the amount of data transferred from the database to the application for each fetching strategy. 
+		* `Data Transfer Size`: A bar chart comparing the amount of data transferred from the database to the application for each fetching strategy.
 	* A discussion on the suitability of each fetching strategy for different use cases.
 	* Your conclusion from this experiment.
 * Fork the repository and push your changes.
 * Once you finished your project, send a Pull Request. (Send only one Pull Request once you finish the assignment.)
-
-### Important Notes
----
-
- * You are not allowed to share codes with your classmates. If detected, you will get NC.
- * **For pairs:**
-	 * Individual's work will be checked from the commits.
-	 *  Share tasks evenly and fairly.
-	 *  To have a clearer understanding of pair programming:
-		 *  > **Pair programming** is an agile software development technique in which two programmers work together at one workstation. One, the _driver_, writes code while the other, the _observer_ or _navigator_ reviews each line of code as it is typed in. The two programmers switch roles frequently. 
-		 * [Wikipedia](https://en.wikipedia.org/wiki/Pair_programming#:~:text=Pair%20programming%20is%20an%20agile,two%20programmers%20switch%20roles%20frequently.)
-
--   Remember to respect the code honor submission policy. All written code must be original. Presenting something as one’s own work when it came from another source is plagiarism and is forbidden.
-    
--   Plagiarism is a very serious thing in all American academic institutions and is guarded against vigilantly by every professor.
-

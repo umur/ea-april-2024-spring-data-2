@@ -84,7 +84,7 @@ Hibernate:
     where
         r1_0.product_id=?
 ```
-* **Execution Time**: 10660ms
+* **Execution Time**: 9513 milliseconds
 * **Screenshot**: ![A screenshot of join](./reports/eager/join.jpg)
 * **Memory Usage**: 162.56MB
 * **Screenshot**: ![A screenshot of join](./reports/eager/join_memory.png)
@@ -160,7 +160,7 @@ Hibernate:
         from
             product p1_0)
 ```
-* **Execution Time**: 9513 milliseconds
+* **Execution Time**: 81 milliseconds
 * **Screenshot**: ![A screenshot of subselect](./reports/lazy/sub_select.jpg)
 * **Memory Usage**: 162.56MB
 * **Screenshot**: ![A screenshot of subselect](./reports/lazy/sub_select_memory.png)

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class ReviewDto {
+public class ReviewDto implements java.io.Serializable {
 
     private Long reviewId;
 

@@ -32,12 +32,15 @@ public class OperationLog {
 
     private Long dataTransferSize;
 
-    private boolean isChildEntityLoaded;
-
     private Long usedMemoryBefore;
 
     private Long usedMemoryAfter;
 
     private Long memoryUsage;
+
+    @Column(columnDefinition = "TEXT")
+    private String sampleQueries;
+
+    private int batchSize;
 
 }

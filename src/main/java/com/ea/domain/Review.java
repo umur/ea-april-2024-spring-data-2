@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Review {
+public class Review implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

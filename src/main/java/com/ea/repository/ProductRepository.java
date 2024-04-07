@@ -1,6 +1,6 @@
-package com.Shop.Market.repository;
+package com.ea.repository;
 
-import com.Shop.Market.Domain.Product;
+import com.ea.domain.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

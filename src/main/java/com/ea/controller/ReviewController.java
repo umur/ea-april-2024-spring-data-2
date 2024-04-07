@@ -1,8 +1,7 @@
-package com.Shop.Market.controller;
+package com.ea.controller;
 
-import com.Shop.Market.Domain.Review;
-import com.Shop.Market.Service.ReviewService;
-import com.Shop.Market.dto.ReviewDto;
+import com.ea.service.ReviewService;
+import com.ea.dto.ReviewDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

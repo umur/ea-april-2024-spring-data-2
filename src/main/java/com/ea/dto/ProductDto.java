@@ -1,6 +1,6 @@
-package com.Shop.Market.dto;
+package com.ea.dto;
 
-import com.Shop.Market.Domain.Product;
+import com.ea.domain.Product;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.util.CollectionUtils;
@@ -11,9 +11,9 @@ import java.util.List;
 @NoArgsConstructor
 public class ProductDto {
 
-    private String productName;
-
     private Long productId;
+
+    private String productName;
 
     private Double productPrice;
 

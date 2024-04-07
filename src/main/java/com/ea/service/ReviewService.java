@@ -1,8 +1,7 @@
-package com.Shop.Market.Service;
+package com.ea.service;
 
-import com.Shop.Market.Domain.Review;
-import com.Shop.Market.dto.ReviewDto;
-import com.Shop.Market.repository.ReviewRepository;
+import com.ea.dto.ReviewDto;
+import com.ea.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

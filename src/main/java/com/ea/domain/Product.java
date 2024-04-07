@@ -1,16 +1,15 @@
-package com.Shop.Market.Domain;
+package com.ea.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import java.util.List;
 
 
-@Entity
 @Data
+@Entity
 public class Product {
 
     @Id
@@ -20,9 +19,8 @@ public class Product {
     private double price;
     private int rating;
 
-    @Fetch(value = FetchMode.SUBSELECT)
-    //@BatchSize(size = 20)
-    @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
+    @Fetch(value = FetchMode.SELECT)
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Review> review;
 
 }

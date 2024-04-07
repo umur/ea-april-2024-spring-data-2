@@ -1,10 +1,10 @@
-package com.Shop.Market;
+package com.ea;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SuperMarketApplicationTests {
+class SpringDataApplicationTests {
 
 	@Test
 	void contextLoads() {

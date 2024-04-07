@@ -1,6 +1,6 @@
-package com.Shop.Market.dto;
+package com.ea.dto;
 
-import com.Shop.Market.Domain.Review;
+import com.ea.domain.Review;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,6 +17,7 @@ public class ReviewDto {
     private String productName;
 
     private Long productId;
+
 
     public ReviewDto(Review review) {
         reviewId = review.getId();

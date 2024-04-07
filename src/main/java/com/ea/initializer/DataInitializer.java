@@ -1,39 +1,37 @@
-package com.Shop.Market;
+package com.ea.initializer;
 
-import com.Shop.Market.Domain.Product;
-import com.Shop.Market.Domain.Review;
-import com.Shop.Market.Domain.User;
-import com.Shop.Market.repository.ProductRepository;
-import com.Shop.Market.repository.ReviewRepository;
-import com.Shop.Market.repository.UserRepository;
+import com.ea.domain.Product;
+import com.ea.domain.Review;
+import com.ea.domain.User;
+import com.ea.repository.ProductRepository;
+import com.ea.repository.ReviewRepository;
+import com.ea.repository.UserRepository;
 import com.github.javafaker.Faker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
+@Component
 @RequiredArgsConstructor
-@SpringBootApplication
-public class SuperMarketApplication implements CommandLineRunner {
+public class DataInitializer implements CommandLineRunner {
 
+    private final ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
     private static final Faker FAKER = Faker.instance();
     private final ProductRepository productRepository;
     private final ReviewRepository reviewRepository;
     private final UserRepository userRepository;
 
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(SuperMarketApplication.class, args);
-
-    }
-
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         // 100 users
-        //1000 products
+        // 1000 products
         // 1000 reviews products
 
         if(productRepository.count() > 0){
@@ -46,7 +44,6 @@ public class SuperMarketApplication implements CommandLineRunner {
 
         List<Product> products = new ArrayList<>();
         List<User> users = new ArrayList<>();
-//        List<Review> reviews = new ArrayList<>();
 
 
         //Create products
@@ -63,11 +60,11 @@ public class SuperMarketApplication implements CommandLineRunner {
 
         //Create Users
         System.out.println("Generating Users");
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 100; i++) {
             User user = new User();
             user.setUsername(FAKER.name().username());
             user.setEmail(FAKER.internet().emailAddress());
-            user.setPasswordHash(FAKER.crypto().md5());
+            user.setPassword(FAKER.crypto().md5());
             userRepository.save(user);
             users.add(user);
         }
@@ -75,16 +72,27 @@ public class SuperMarketApplication implements CommandLineRunner {
 
         System.out.println("Generating Reviews");
         for (Product product : products) {
-            for (int i = 0; i < 100; i++) {
+            List<Review> reviews = new ArrayList<>();
+            for (int i = 0; i < 1000; i++) {
                 Review review = new Review();
                 review.setComment(FAKER.lorem().sentence());
                 review.setProduct(product);
                 final User user = FAKER.options().nextElement(users);
                 review.setUser(user);
-                reviewRepository.save(review);
+                reviews.add(review);
             }
+            saveProductReviewBatch(reviews);
         }
         System.out.println("Data generation done");
+    }
 
+
+    private static final AtomicInteger counter = new AtomicInteger(0);
+
+    private void saveProductReviewBatch(List<Review> reviews) {
+
+        System.out.println("Saving batch " + counter.incrementAndGet());
+
+        executorService.submit(() -> reviewRepository.saveAll(reviews));
     }
 }

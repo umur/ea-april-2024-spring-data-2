@@ -31,8 +31,8 @@ public class Product {
     @JsonManagedReference
     //@Fetch(FetchMode.SUBSELECT)
     //@Fetch(FetchMode.SELECT)
-    //@Fetch(FetchMode.JOIN)
-    @BatchSize(size = 200)
+    @Fetch(FetchMode.JOIN)
+    //@BatchSize(size = 200)
     private List<Review> reviews;
 
     public Product(String name, String description) {

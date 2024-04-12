@@ -1,9 +1,12 @@
 package edu.miu.cs544.labs.lab3.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Getter
@@ -19,11 +22,13 @@ public class Review {
     private String comment;
 
     @ManyToOne
-    @JsonBackReference
+//    @Fetch(FetchMode.SUBSELECT)
+//    @JsonIgnore
     private User user;
 
     @ManyToOne
     @JsonBackReference
+//    @JsonIgnore
     private Product product;
 
     public Review(int rating, String comment, User user, Product product) {

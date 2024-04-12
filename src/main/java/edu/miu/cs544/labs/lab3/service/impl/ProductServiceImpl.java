@@ -1,6 +1,8 @@
 package edu.miu.cs544.labs.lab3.service.impl;
 
 import edu.miu.cs544.labs.lab3.entity.Product;
+import edu.miu.cs544.labs.lab3.entity.Review;
+import edu.miu.cs544.labs.lab3.entity.User;
 import edu.miu.cs544.labs.lab3.repository.ProductRepo;
 import edu.miu.cs544.labs.lab3.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +18,6 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepo repo;
 
     @Override
-    @EntityGraph(value = "Product.reviews")
     public List<Product> findAll() {
         return repo.findAll();
     }

@@ -1,5 +1,6 @@
 package edu.miu.cs544.labs.lab3.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -15,9 +16,9 @@ import java.util.List;
 @Setter
 @Entity
 @NoArgsConstructor
-@NamedEntityGraph(name = "Product.reviews",
-        attributeNodes = @NamedAttributeNode("reviews")
-)
+//@NamedEntityGraph(name = "graph.Product.reviews",
+//        attributeNodes = @NamedAttributeNode(value = "reviews", subgraph = "reviews"),
+//        subgraphs = @NamedSubgraph(name = "reviews", attributeNodes = @NamedAttributeNode("user")))
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,12 +28,8 @@ public class Product {
 
     private String description;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    @JsonManagedReference
-    //@Fetch(FetchMode.SUBSELECT)
-    //@Fetch(FetchMode.SELECT)
-    @Fetch(FetchMode.JOIN)
-    //@BatchSize(size = 200)
+    @OneToMany(mappedBy = "product")
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Review> reviews;
 
     public Product(String name, String description) {

@@ -1,12 +1,8 @@
 package miu.ea.group3g.lab4.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -15,15 +11,17 @@ import java.util.List;
 
 @Data
 @Entity
-public class Product {
+@Table(name = "product")
+public class ProductSubSelectLazy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private BigDecimal price;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     @JsonManagedReference
-    @Fetch(value = FetchMode.JOIN)
-    private List<Review> reviews;
+    @Fetch(FetchMode.SUBSELECT)
+    private List<ReviewSubSelectLazy> reviews;
 }
+

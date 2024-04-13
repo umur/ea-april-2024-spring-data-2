@@ -6,20 +6,23 @@ import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
 @Entity
-//@NamedEntityGraph(name = "User.reviews", attributeNodes = @NamedAttributeNode("reviews"))
-public class User {
+@NamedEntityGraph(name = "Product.reviews", attributeNodes = @NamedAttributeNode("reviews"))
+@Table(name = "product")
+public class ProductJoin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private BigDecimal price;
 
-    //    @BatchSize(size = 50)
-//    @JsonManagedReference
-//    @OneToMany(mappedBy = "user")
-//    @Fetch(FetchMode.JOIN)
-//    private List<ReviewBatchLazy> reviews;
+    @OneToMany(mappedBy = "product")
+    @JsonManagedReference
+    @Fetch(value = FetchMode.JOIN)
+    private List<ReviewJoin> reviews;
 }
+

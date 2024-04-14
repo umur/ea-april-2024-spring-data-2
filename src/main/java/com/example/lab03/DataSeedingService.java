@@ -26,10 +26,10 @@ public class DataSeedingService implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if (shouldSeed()) {
-            seedUsers(100);
-            seedProductsAndReviews(1000, 1000);
-        }
+//        if (shouldSeed()) {
+//            seedUsers(100);
+//            seedProductsAndReviews(1000, 1000);
+//        }
     }
 
     private void seedUsers(int count) {

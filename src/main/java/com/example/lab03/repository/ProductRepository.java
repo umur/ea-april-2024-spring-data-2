@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    @EntityGraph(value = "product-with-reviews-and-user", type = EntityGraph.EntityGraphType.FETCH)
-    List<Product> findAll();
+    //@EntityGraph(value = "product-with-reviews-and-user", type = EntityGraph.EntityGraphType.FETCH)
+    //List<Product> findAll();
 }

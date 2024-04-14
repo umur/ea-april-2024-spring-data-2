@@ -14,18 +14,18 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@NamedEntityGraph(
-        name = "product-with-reviews-and-user",
-        attributeNodes = {
-                @NamedAttributeNode(value = "reviews", subgraph = "reviews-subgraph")
-        },
-        subgraphs = {
-                @NamedSubgraph(
-                        name = "reviews-subgraph",
-                        attributeNodes = @NamedAttributeNode(value = "user")
-                )
-        }
-)
+//@NamedEntityGraph(
+//        name = "product-with-reviews-and-user",
+//        attributeNodes = {
+//                @NamedAttributeNode(value = "reviews", subgraph = "reviews-subgraph")
+//        },
+//        subgraphs = {
+//                @NamedSubgraph(
+//                        name = "reviews-subgraph",
+//                        attributeNodes = @NamedAttributeNode(value = "user")
+//                )
+//        }
+//)
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,9 +35,9 @@ public class Product {
     private Double price;
     private Double rating;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     @JsonIgnoreProperties("product")
-//    @Fetch(FetchMode.SELECT)
-//    @BatchSize(size = 1)
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    //@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SUBSELECT)
     private List<Review> reviews = new ArrayList<>();
 }

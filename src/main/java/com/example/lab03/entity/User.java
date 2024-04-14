@@ -1,6 +1,7 @@
 package com.example.lab03.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,6 @@ public class User {
     private String lastName;
 
     @OneToMany(mappedBy = "user")
-    @JsonIgnore
+    @JsonIgnoreProperties("user")
     private List<Review> reviews = new ArrayList<>();
 }

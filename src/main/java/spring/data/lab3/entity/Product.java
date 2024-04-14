@@ -1,5 +1,6 @@
 package spring.data.lab3.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +20,30 @@ public class Product {
     private String name;
     private double price;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
-    @Fetch(value = FetchMode.SELECT)
+    // fetch strategy: LAZY and Subselect
+//    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+//    @JsonManagedReference
+//    @Fetch(FetchMode.SUBSELECT)
+//    private List<Review> reviews;
+
+    // fetch strategy: EAGER and Subselect
+//    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+//    @JsonManagedReference
+//    @Fetch(FetchMode.SUBSELECT)
+//    private List<Review> reviews;
+
+
+    // fetch strategy: EAGER and BATCH
+//    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+//    @JsonManagedReference
+//    @Fetch(FetchMode.SELECT)
+//    @BatchSize(size = 100)
+//    private List<Review> reviews;
+
+    // fetch strategy: EAGER and BATCH
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    @JsonManagedReference
+    @Fetch(FetchMode.SELECT)
+    @BatchSize(size = 100)
     private List<Review> reviews;
 }

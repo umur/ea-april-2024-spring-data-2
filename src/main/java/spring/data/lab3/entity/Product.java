@@ -41,7 +41,7 @@ public class Product {
 //    @BatchSize(size = 100)
 //    private List<Review> reviews;
 
-//    // fetch strategy: EAGER and BATCH
+//    // fetch strategy: LAZY and BATCH
 //    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
 //    @JsonManagedReference
 //    @Fetch(FetchMode.SELECT)
@@ -52,4 +52,9 @@ public class Product {
     @Fetch(FetchMode.SELECT)
     @JsonManagedReference
     private List<Review> reviews;
+
+//    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+//    @Fetch(FetchMode.SELECT)
+//    @JsonManagedReference
+//    private List<Review> reviews;
 }

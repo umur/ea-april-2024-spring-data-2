@@ -19,10 +19,9 @@ public class ProductService {
     private final ProductRepo productRepository;
 
     public List<Product> getProductsBySelect() {
-        // TODO: Implement this method
         var time = System.currentTimeMillis();
-//        Page<Product> products = productRepository.findAll(Pageable.ofSize(300));
-        List<Product> products = productRepository.findAll();
+        List<Product> products = productRepository.findAllWithJoin();
+//        List<Product> products = productRepository.findAll();
         System.out.println(System.currentTimeMillis() - time);
         return products;
     }

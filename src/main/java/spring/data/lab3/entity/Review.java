@@ -1,6 +1,8 @@
 package spring.data.lab3.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,11 +19,11 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonIgnore
+
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    @JsonIgnore
+    @JsonBackReference
     private Product product;
 }
